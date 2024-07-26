@@ -1,0 +1,31 @@
+{
+    "version": "2024072501",
+    "title": "Corrigan Minehan Heart Center",
+    "description": "A team of world-class physicians and nurses, each specializing in specific forms of heart disease, work closely together to offer leading treatments and preventive care for both common and complex cardiac conditions. Learn More >",
+    "aboutPageTitle": "About the Corrigan Minehan Heart Center",
+    "aboutPageHTML": "<p>At the Corrigan Minehan Heart Center at Massachusetts General Hospital, world-class specialist physicians and nurses offer leading treatments and preventative care for both common and complex cardiac conditions.</p><hr/><h3>Cross-Specialty Cardiac Care</h3><p>A dedicated team of cardiologists, cardiac surgeons, cardiac anesthesiologists, cardiac nurses and cardiac radiologists provide leading cardiac care. Our clinicians are some of the world’s foremost experts in diagnosing, treating and preventing heart disease. Each of our 11 condition-specific programs offers a team approach to diagnosis and treatment that involves a multidisciplinary team of physicians who specialize in a particular type of heart condition.</p><hr/><h3>Excellence in Cardiac Care Since 1916</h3><p>In 1916 Massachusetts General Hospital opened one of the first dedicated cardiac units in the nation. Since then, we have made significant contributions to cardiology, including:</p><ul><li>Developing the first-of-its-kind heart monitor to detect and treat arrhythmias</li><li>Investigating ways to dissolve blood clots in the coronary arteries of patients with acute myocardial infarction (heart attack)</li><li>Pioneering the development of pacemakers</li><li>Developing minimally invasive techniques, such as opening narrowed heart valves with balloons and closing heart defects with catheters</li></ul><p>We are also an international referral center for complex cases, such as:</p><ul><li><strong>Thoracic aortic disease.</strong> The Corrigan Minehan Heart Center’s Thoracic Aortic Center is one of the largest of its kind in New England and brings together specialists from cardiology, cardiac surgery, vascular and endovascular surgery and imaging</li><li><strong>Cardiac resynchronization therapy.</strong> Physicians in the Cardiac Resynchronization Therapy Program are developing new ways to treat heart failure patients, including applying remote monitoring technology</li><li><strong>Hypertrophic cardiomyopathy.</strong> Our program's physicians have treated more than 500 patients with hypertrophic cardiomyopathy, a rare condition characterized by an abnormal thickening of the muscle in the heart’s left ventricle. Learn about the Hypertrophic Cardiomyopathy Program.</li></ul><h3>Nationally Recognized Research</h3><p>Corrigan Minehan Heart Center physicians participate in nationally recognized research and clinical trials that focus on:</p><ul><li>Defining genetic indicators for coronary artery disease, atrial fibrillation and cardiomyopathy that predict future cardiovascular events in otherwise healthy individuals</li><li>Developing and evaluating new treatments, such as percutaneous heart valve replacement and endovascular stent-graft repairs</li><li>Discovering stem cells that help regenerate heart muscle and might make it possible to one day create a completely new heart. </li></ul>",
+"serviceList" : [
+    {
+        "serviceId" : "ecmo",
+        "serviceTitle": "ECMO",
+        "serviceDescription": "Extracorporeal Life Support (ECLS/ECMO)",
+        "servicePhone": "617-555-1212",
+        "serviceImageAssetPath": "assets/images/ecmo.jpg",
+        "serviceInfoPageList" : [
+            {"serviceInfoPageTitle" : "checklist", "serviceInfoPageHTML" : "<h3>here is the ECMO checklist</h3><li>one</li><li>two</li><li>three</li>"},
+            {"serviceInfoPageTitle" : "guidelines", "serviceInfoPageHTML" : "<h3>here are the ECMO guidelines</h3><p>something</p><p>something else</p>"}
+        ]
+    },
+    {
+        "serviceId" : "ad",
+        "serviceTitle": "AORTIC DISSECTION",
+        "serviceDescription": "Call early in the clinical course. Calls for any patient with a potential aortic dissection are welcome.",
+        "servicePhone": "617-555-1212",
+        "serviceImageAssetPath": "assets/images/dissection.jpg",
+        "serviceInfoPageList" : [
+            {"serviceInfoPageTitle" : "checklist", "serviceInfoPageHTML" : "<h3>here is the AO checklist</h3><li>one</li><li>two</li><li>three</li>"},
+            {"serviceInfoPageTitle" : "guidelines", "serviceInfoPageHTML" : "<h3>here are the AO guidelines</h3><p>something</p><p>something else</p>"}
+        ]
+    }
+]
+}
