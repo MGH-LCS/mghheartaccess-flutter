@@ -67,13 +67,17 @@ class HeartService {
 }
 
 class HeartServiceInfoPage {
-  HeartServiceInfoPage({required this.title, required this.html});
+  HeartServiceInfoPage(
+      {required this.title, required this.html, required this.headingText});
 
   String title;
   String html;
+  String headingText;
 
   factory HeartServiceInfoPage.fromJson(Map<String, dynamic> json) {
     return HeartServiceInfoPage(
-        title: json['serviceInfoPageTitle'], html: json['serviceInfoPageHTML']);
+        title: json['serviceInfoPageTitle'],
+        html: json['serviceInfoPageHTML'],
+        headingText: json['serviceInfoPageHeadingText']);
   }
 }

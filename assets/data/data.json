@@ -12,19 +12,35 @@
         "servicePhone": "617-555-1212",
         "serviceImageAssetPath": "assets/images/ecmo.jpg",
         "serviceInfoPageList" : [
-            {"serviceInfoPageTitle" : "checklist", "serviceInfoPageHTML" : "<h3>here is the ECMO checklist</h3><li>one</li><li>two</li><li>three</li>"},
-            {"serviceInfoPageTitle" : "guidelines", "serviceInfoPageHTML" : "<h3>here are the ECMO guidelines</h3><p>something</p><p>something else</p>"}
+            {
+                "serviceInfoPageTitle" : "Checklist", 
+                "serviceInfoPageHTML" : "<html><head><style>font-size: 20pt</style></head><body style=\"font-size: 30pt\"><hr/><p>When calling, please provide:</p><ul><li>Name, DOB, height, weight</li><li>Admission Diagnosis</li><li>Recent cardiac arrest?</li><li>Currently on ECMO? VA, VV, or VAV ECMO?<ul><li>Circuit type and flow (target 2 at minimum – goal 2.4L/min/M2); any difficulty maintaining flow</li><li>Cannulation details (cannula size and location, presence of distal perfusion catheter?) </li></ul></li><li>Current hemodynamic support<ul><li>Pharmacologic: epinephrine, norepinephrine, vasopressin, milrinone, etc? dose?</li><li>Mechanical support: IABP, Impella, etc</li></ul></li><li>Last known neurologic status</li><li>Major comorbidities and allergies</li><li>All IV drips, significant medications (e.g. vasopressors, sedation, paralytics)</li>Tubes/Lines/Drains: arterial and venous access/lines, chest tubes, etc (Note: right upper extremity for saturation and arterial line or right ear for saturation are preferred over left)<li>Active bleeding? (anything > 100 cc/hr)</li><li>Mechanical ventilator settings and duration of support</li><li>Renal replacement therapy?</li><li>Most recent ABG, BMP, CBC, coagulation studies and lactate (drawn within 1 hour of transport)</li><li>Recent echocardiogram and imaging results (including CXR, chest CT, etc) Contact information for patient’s health care agent</li><li>Receiving ECMO team member will provide:</li><li>Decision regarding acceptance (Note: will require call-back to sending after discussion with ECMO response team)</li><li>Any action/investigation recommended for optimization before transport</li></ul><hr/><p>For acccepted patients:</p><p>The referring center should contact Boston MedFlight 1-800-233-8998 (preferable) or other critical care transport (CCT) team per hospital protocol.</p><p>Arrange for a minimum of 2 units of PRBCs to travel with patient</p><p>If intubated, sedation and chemical paralytics recommended for transport</p><p>Prepare and provide transport team with an adequate quantity of vasoactive drips and other continuous infusions</p><p>If patient is being transported with perfusion from the sending facility, ensure perfusion has addressed any ECMO circuit incompatibilities with receiving center prior to transport</p><p>Please report any change in status prior to or during transport to MD Connect at 1-617-726-3384</p></body></html>",
+                "serviceInfoPageHeadingText" : "Call MGH ECMO Hotline at 857-310-0335 or call the operator at 617-726-2000 and page 29151"
+
+            },
+            {
+                "serviceInfoPageTitle" : "Guidelines", 
+                "serviceInfoPageHTML" : "<h3>here are the ECMO guidelines</h3><p>something</p><p>something else</p>",
+                "serviceInfoPageHeadingText" : "Call MGH ECMO Hotline at 857-310-0335 or call the operator at 617-726-2000 and page 29151"
+            }
         ]
     },
     {
         "serviceId" : "ad",
-        "serviceTitle": "AORTIC DISSECTION",
+        "serviceTitle": "Aortic Dissection",
         "serviceDescription": "Call early in the clinical course. Calls for any patient with a potential aortic dissection are welcome.",
         "servicePhone": "617-555-1212",
         "serviceImageAssetPath": "assets/images/dissection.jpg",
         "serviceInfoPageList" : [
-            {"serviceInfoPageTitle" : "checklist", "serviceInfoPageHTML" : "<h3>here is the AO checklist</h3><li>one</li><li>two</li><li>three</li>"},
-            {"serviceInfoPageTitle" : "guidelines", "serviceInfoPageHTML" : "<h3>here are the AO guidelines</h3><p>something</p><p>something else</p>"}
+            {
+                "serviceInfoPageTitle" : "Checklist", 
+                "serviceInfoPageHeadingText" : "Call MGH Aortic Dissection Hotline at 617-724-3890 and state you are calling for an Aortic Dissection Transfer", 
+                "serviceInfoPageHTML" : "<h3>here is the AO checklist</h3><li>one</li><li>two</li><li>three</li>"
+            },
+            {
+                "serviceInfoPageTitle" : "Guidelines", 
+                "serviceInfoPageHeadingText" : "Call MGH Aortic Dissection Hotline at 617-724-3890 and state you are calling for an Aortic Dissection Transfer",
+                "serviceInfoPageHTML" : "<h3>here are the AO guidelines</h3><p>something</p><p>something else</p>"}
         ]
     }
 ]
