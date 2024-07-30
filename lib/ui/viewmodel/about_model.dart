@@ -11,7 +11,7 @@ class AboutHeartCenterModel extends BaseModel {
     print('HomeModel: init ...');
 
     webViewController = WebViewController()
-      ..enableZoom(true)
+      ..enableZoom(false)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(const Color(0x00000000))
       ..loadHtmlString(heartCenter.aboutPageHTML);

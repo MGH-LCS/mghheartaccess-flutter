@@ -22,11 +22,31 @@ class HeartServiceDetailView extends StatelessWidget {
               child: Scaffold(
                 appBar: AppBar(
                   title: Text(heartService.title),
-                  bottom: TabBar(
-                    tabs: <Widget>[
-                      ...heartService.infoPageList!
-                          .map((page) => Tab(text: page.title)),
-                    ],
+                  bottom: PreferredSize(
+                    preferredSize: const Size.fromHeight(115),
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(color: mgbBlue),
+                          child: const Padding(
+                            padding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Call MGH ECMO Hotline at 857-310-0335 or call the operator at 617-726-2000 and page 29151",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        TabBar(
+                          tabs: <Widget>[
+                            ...heartService.infoPageList!.map((page) => Tab(text: page.title)),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 floatingActionButton: FloatingActionButton.extended(
@@ -42,7 +62,7 @@ class HeartServiceDetailView extends StatelessWidget {
                   backgroundColor: mgbRed,
                 ),
                 body: SafeArea(
-                  minimum: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+                  minimum: const EdgeInsets.fromLTRB(0, 0, 0, 8),
                   child: TabBarView(
                     children: <Widget>[
                       ...heartService.infoPageList!.map(
@@ -68,27 +88,28 @@ class HeartServiceInfoPageView extends StatelessWidget {
   Widget build(BuildContext context) {
     //return SingleChildScrollView(
 
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16.0, 16, 16, 100),
-      child: Column(
-        children: [
-          Text(page.headingText),
-          const SizedBox(
-            height: 10,
+    return Column(
+      children: [
+        // Container(
+        //   decoration: BoxDecoration(color: mgbBlue),
+        //   child: Padding(
+        //     padding: const EdgeInsets.all(16.0),
+        //     child: Text(
+        //       page.headingText,
+        //       style: TextStyle(color: Colors.white),
+        //     ),
+        //   ),
+        // ),
+        Expanded(
+          child: WebViewWidget(
+            gestureRecognizers: {Factory<VerticalDragGestureRecognizer>(() => VerticalDragGestureRecognizer())},
+            controller: WebViewController()
+              ..setBackgroundColor(const Color(0x00000000))
+              ..enableZoom(false)
+              ..loadHtmlString(page.html),
           ),
-          Expanded(
-            child: WebViewWidget(
-              gestureRecognizers: {
-                Factory<VerticalDragGestureRecognizer>(
-                    () => VerticalDragGestureRecognizer())
-              },
-              controller: WebViewController()
-                ..enableZoom(true)
-                ..loadHtmlString(page.html),
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 }

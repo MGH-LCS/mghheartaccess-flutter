@@ -26,7 +26,7 @@ class AboutHeartCenterView extends StatelessWidget {
               body: SafeArea(
                   minimum: const EdgeInsets.fromLTRB(0, 0, 0, 8),
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(16.0, 16, 16, 100),
+                    padding: const EdgeInsets.fromLTRB(16.0, 16, 16, 16),
                     child: WebViewWidget(
                       controller: model.webViewController,
                     ),
