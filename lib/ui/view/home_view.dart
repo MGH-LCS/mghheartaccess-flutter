@@ -203,7 +203,7 @@ class ServiceCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          svc.title,
+                          svc.title.toUpperCase(),
                           style: const TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 20),
                         ),
@@ -226,14 +226,9 @@ class ServiceCard extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    // const TextButton(
-                    //   onPressed: null,
-                    //   child: Text('Guidelines'),
-                    // ),
                     TextButton(
                       onPressed: () {
                         model.showServiceDetail(svc);
-                        //_navigateToECMOScreen(context);
                       },
                       child: const Text(' Guidelines'),
                     ),
@@ -244,16 +239,16 @@ class ServiceCard extends StatelessWidget {
                       style: ButtonStyle(
                         backgroundColor: WidgetStatePropertyAll<Color>(mgbRed),
                       ),
-                      onPressed: null,
+                      onPressed: () => model.handleServiceCall(context, svc),
                       label: const Text(
                         'Hotline',
                         style: TextStyle(color: Colors.white),
                       ),
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.phone,
                         color: Colors.white,
                         size: 24.0,
-                        semanticLabel: 'Call the ECMO hotline',
+                        semanticLabel: 'Call the ${svc.title} hotline',
                       ),
                     ),
                   ],

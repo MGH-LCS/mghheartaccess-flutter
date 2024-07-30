@@ -28,13 +28,13 @@ class HeartServiceDetailView extends StatelessWidget {
                       children: [
                         Container(
                           decoration: BoxDecoration(color: mgbBlue),
-                          child: const Padding(
-                            padding: EdgeInsets.fromLTRB(16, 12, 16, 12),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                             child: Column(
                               children: [
                                 Text(
-                                  "Call MGH ECMO Hotline at 857-310-0335 or call the operator at 617-726-2000 and page 29151",
-                                  style: TextStyle(color: Colors.white),
+                                  heartService.headerText,
+                                  style: const TextStyle(color: Colors.white),
                                 )
                               ],
                             ),
@@ -42,7 +42,8 @@ class HeartServiceDetailView extends StatelessWidget {
                         ),
                         TabBar(
                           tabs: <Widget>[
-                            ...heartService.infoPageList!.map((page) => Tab(text: page.title)),
+                            ...heartService.infoPageList!
+                                .map((page) => Tab(text: page.title)),
                           ],
                         ),
                       ],
@@ -50,7 +51,8 @@ class HeartServiceDetailView extends StatelessWidget {
                   ),
                 ),
                 floatingActionButton: FloatingActionButton.extended(
-                  onPressed: null,
+                  onPressed: () =>
+                      model.handleServiceCall(context, heartService),
                   label: Text(
                     "${heartService.title} Hotline",
                     style: const TextStyle(color: Colors.white),
@@ -102,7 +104,10 @@ class HeartServiceInfoPageView extends StatelessWidget {
         // ),
         Expanded(
           child: WebViewWidget(
-            gestureRecognizers: {Factory<VerticalDragGestureRecognizer>(() => VerticalDragGestureRecognizer())},
+            gestureRecognizers: {
+              Factory<VerticalDragGestureRecognizer>(
+                  () => VerticalDragGestureRecognizer())
+            },
             controller: WebViewController()
               ..setBackgroundColor(const Color(0x00000000))
               ..enableZoom(false)

@@ -34,6 +34,7 @@ class HeartService {
   HeartService(
       {required this.id,
       required this.description,
+      required this.headerText,
       required this.title,
       required this.phone,
       required this.imageAssetPath,
@@ -42,6 +43,7 @@ class HeartService {
   String id;
   String title;
   String description;
+  String headerText;
   String phone;
   String imageAssetPath;
   List<HeartServiceInfoPage>? infoPageList;
@@ -58,6 +60,7 @@ class HeartService {
     return HeartService(
       id: json['serviceId'] as String,
       description: json['serviceDescription'] as String,
+      headerText: json['serviceHeaderText'] as String,
       title: json['serviceTitle'] as String,
       phone: json['servicePhone'] as String,
       imageAssetPath: json['serviceImageAssetPath'] as String,
@@ -67,17 +70,15 @@ class HeartService {
 }
 
 class HeartServiceInfoPage {
-  HeartServiceInfoPage(
-      {required this.title, required this.html, required this.headingText});
+  HeartServiceInfoPage({required this.title, required this.html});
 
   String title;
   String html;
-  String headingText;
 
   factory HeartServiceInfoPage.fromJson(Map<String, dynamic> json) {
     return HeartServiceInfoPage(
-        title: json['serviceInfoPageTitle'],
-        html: json['serviceInfoPageHTML'],
-        headingText: json['serviceInfoPageHeadingText']);
+      title: json['serviceInfoPageTitle'],
+      html: json['serviceInfoPageHTML'],
+    );
   }
 }

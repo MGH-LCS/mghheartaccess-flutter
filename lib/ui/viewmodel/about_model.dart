@@ -8,7 +8,7 @@ class AboutHeartCenterModel extends BaseModel {
   late final WebViewController webViewController;
 
   Future init(HeartCenter heartCenter) async {
-    print('HomeModel: init ...');
+    print('AboutHeartCenterModel: init ...');
 
     webViewController = WebViewController()
       ..enableZoom(false)
