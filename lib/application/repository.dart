@@ -52,6 +52,22 @@ class Repository {
     DateTime? fbLastUpdated = await getLastUpdatedFromFirebase();
 
     // look for document in docs directory
+    File localFile = await _localDataFile;
+
+    if (localFile.existsSync() &&
+        lastUpdated != null &&
+        fbLastUpdated != null &&
+        lastUpdated.isAfter(fbLastUpdated)) {
+      print(
+          'Repository: init: local file exists - lastUpdated $lastUpdated with is after Firebase last updated $fbLastUpdated ...');
+
+      // just use the local data file
+    } else {
+      print('Repository: init: local file does not exist ...');
+
+      // Mode for opening a file for writing only. The file is overwritten if it already exists. The file is created if it does not already exist
+      // writeAsString(String contents, {FileMode mode = FileMode.writeOnly});
+    }
 
     // if def file in documents directlry is null, load from assets directory
 
