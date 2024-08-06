@@ -3,7 +3,14 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-enum RouteName { home, serviceDetail, about }
+enum RouteName {
+  home,
+  serviceDetail,
+  about,
+  termsOfUse,
+  privacyPolicy,
+  feedback
+}
 
 class NavigationService {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();

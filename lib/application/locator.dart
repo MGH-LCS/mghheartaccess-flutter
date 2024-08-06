@@ -8,6 +8,8 @@ import 'package:mghheartaccess/service/navigation_service.dart';
 import 'package:mghheartaccess/ui/viewmodel/about_model.dart';
 import 'package:mghheartaccess/ui/viewmodel/heart_service_detail_model.dart';
 import 'package:mghheartaccess/ui/viewmodel/home_model.dart';
+import 'package:mghheartaccess/ui/viewmodel/privacy_policy_model.dart';
+import 'package:mghheartaccess/ui/viewmodel/terms_of_use_model.dart';
 
 GetIt locator = GetIt.instance;
 
@@ -20,4 +22,7 @@ void setupLocator() {
   locator.registerFactory(() => HomeModel());
   locator.registerFactory(() => HeartServiceDetailModel());
   locator.registerFactory(() => AboutHeartCenterModel());
+
+  locator.registerFactory(() => TermsOfUseModel());
+  locator.registerFactory(() => PrivacyPolicyModel());
 }

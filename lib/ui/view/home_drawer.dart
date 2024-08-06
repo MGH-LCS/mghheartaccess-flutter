@@ -47,6 +47,7 @@ class HomeDrawer extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
+              Navigator.pop(context);
               model.navigateToAboutScreen(context);
             },
             leading: FaIcon(
@@ -57,6 +58,10 @@ class HomeDrawer extends StatelessWidget {
             title: const Text('About Us'),
           ),
           ListTile(
+            onTap: () {
+              Navigator.pop(context);
+              model.navigateToTermsOfUse(context);
+            },
             leading: FaIcon(
               FontAwesomeIcons.solidHandshake,
               size: 20,
@@ -65,6 +70,10 @@ class HomeDrawer extends StatelessWidget {
             title: const Text('Terms of Use'),
           ),
           ListTile(
+            onTap: () {
+              Navigator.pop(context);
+              model.navigateToPrivacyPolicy(context);
+            },
             leading: FaIcon(
               FontAwesomeIcons.solidShield,
               size: 20,
@@ -73,6 +82,10 @@ class HomeDrawer extends StatelessWidget {
             title: const Text('Privacy Policy'),
           ),
           ListTile(
+            onTap: () {
+              Navigator.pop(context);
+              model.navigateToFeedback(context);
+            },
             leading: FaIcon(
               FontAwesomeIcons.solidAt,
               size: 20,
@@ -81,6 +94,10 @@ class HomeDrawer extends StatelessWidget {
             title: const Text('Feedback'),
           ),
           ListTile(
+            onTap: () {
+              Navigator.pop(context);
+              model.navigateToRateAppPage(context);
+            },
             leading: FaIcon(
               FontAwesomeIcons.solidStar,
               size: 20,
@@ -97,7 +114,9 @@ class HomeDrawer extends StatelessWidget {
             ),
             subtitle: Transform.translate(
               offset: const Offset(5, 0),
-              child: const Text("v 1.0.0"),
+              child: Text(model.version == null
+                  ? '?'
+                  : 'v${model.version} (${model.buildNumber})'),
             ),
             leading: SizedBox(
               width: 24,

@@ -41,7 +41,7 @@ class Repository {
 
     DateTime? lastUpdated;
     String? lastUpdatedString = prefs.getString('lastUpdated');
-    DateFormat df = DateFormat('yyyy/MM/dd HH:mm');
+    DateFormat df = DateFormat('yyyy-MM-dd HH:mm');
 
     if (lastUpdatedString != null) {
       lastUpdated = df.parse(lastUpdatedString);

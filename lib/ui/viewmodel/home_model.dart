@@ -8,6 +8,7 @@ import 'package:mghheartaccess/model/heart_center.dart';
 import 'package:mghheartaccess/model/user.dart';
 import 'package:mghheartaccess/service/navigation_service.dart';
 import 'package:mghheartaccess/ui/viewmodel/base_model.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeModel extends BaseModel with WidgetsBindingObserver {
@@ -15,10 +16,22 @@ class HomeModel extends BaseModel with WidgetsBindingObserver {
 
   late HeartCenter heartCenter;
 
+  String? appName;
+  String? packageName;
+  String? version;
+  String? buildNumber;
+
   Future init(User user) async {
     print('HomeModel: init ...');
 
     setState(ViewState.busy);
+
+    // get package info for drawer
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    appName = packageInfo.appName;
+    packageName = packageInfo.packageName;
+    version = packageInfo.version;
+    buildNumber = packageInfo.buildNumber;
 
     try {
       heartCenter = await repo.getHeartCenter();
@@ -108,4 +121,31 @@ class HomeModel extends BaseModel with WidgetsBindingObserver {
       //throw 'Could not launch $url';
     }
   }
+
+  void navigateToTermsOfUse(BuildContext context) {
+    navSvc.navigateTo(RouteName.termsOfUse);
+  }
+
+  void navigateToPrivacyPolicy(BuildContext context) {
+    navSvc.navigateTo(RouteName.privacyPolicy);
+  }
+
+  void navigateToFeedback(BuildContext context) {
+    final Uri _emailLaunchUri = Uri(
+        scheme: 'mailto',
+        path: 'htlappsupport@partners.org',
+        queryParameters: {'subject': 'Feedback'});
+    launchUrl(_emailLaunchUri);
+  }
+
+  void navigateToRateAppPage(BuildContext context) {}
 }
+
+/*
+
+  void navigateToAboutScreen(BuildContext context) {
+    print('HomeModel: navigateToAboutScreen');
+    //Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AboutScreen()));
+    navSvc.navigateTo(RouteName.about, arguments: heartCenter);
+  }
+  */

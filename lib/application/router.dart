@@ -7,6 +7,8 @@ import 'package:mghheartaccess/service/navigation_service.dart';
 import 'package:mghheartaccess/ui/view/about_view.dart';
 import 'package:mghheartaccess/ui/view/heart_service_detail_view.dart';
 import 'package:mghheartaccess/ui/view/home_view.dart';
+import 'package:mghheartaccess/ui/view/privacy_policy_view.dart';
+import 'package:mghheartaccess/ui/view/terms_of_use_view.dart';
 
 const String initialRoute = "home";
 
@@ -38,6 +40,16 @@ class MGHHeartRouter {
         return MaterialPageRoute(
             settings: RouteSettings(name: routeName),
             builder: (_) => AboutHeartCenterView(center));
+
+      case RouteName.termsOfUse:
+        return MaterialPageRoute(
+            settings: RouteSettings(name: routeName),
+            builder: (_) => const TermsOfUseView());
+
+      case RouteName.privacyPolicy:
+        return MaterialPageRoute(
+            settings: RouteSettings(name: routeName),
+            builder: (_) => const PrivacyPolicyView());
 
       default:
         return MaterialPageRoute(
