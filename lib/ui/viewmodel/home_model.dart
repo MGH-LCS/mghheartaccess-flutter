@@ -3,6 +3,8 @@
 import 'dart:async';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
+import 'package:in_app_review/in_app_review.dart';
+import 'package:mghheartaccess/application/config.dart';
 import 'package:mghheartaccess/enums/viewstate.dart';
 import 'package:mghheartaccess/model/heart_center.dart';
 import 'package:mghheartaccess/model/user.dart';
@@ -86,7 +88,7 @@ class HomeModel extends BaseModel with WidgetsBindingObserver {
       // log firebase event
       if (success) {
         await FirebaseAnalytics.instance.logEvent(
-          name: "call_service",
+          name: "call_${svc.id}_service",
           parameters: {
             "service_name": svc.title,
             "phone": svc.phone,
@@ -140,7 +142,10 @@ class HomeModel extends BaseModel with WidgetsBindingObserver {
     launchUrl(_emailLaunchUri);
   }
 
-  void navigateToRateAppPage(BuildContext context) {}
+  void navigateToRateAppPage(BuildContext context) {
+    final InAppReview _inAppReview = InAppReview.instance;
+    _inAppReview.openStoreListing(appStoreId: Config.appStoreAppId);
+  }
 }
 
 /*

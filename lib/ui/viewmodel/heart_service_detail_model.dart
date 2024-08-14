@@ -5,10 +5,38 @@ import 'package:mghheartaccess/ui/viewmodel/base_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HeartServiceDetailModel extends BaseModel {
-  late HeartService heartService;
+  late HeartService _heartService;
 
-  init(HeartService heartService) {
-    heartService = heartService;
+  List<String> viewedTabs = [];
+
+  init(HeartService heartService) async {
+    _heartService = heartService;
+
+    // this is the initial view ... log an event
+    HeartServiceInfoPage visiblePage = _heartService.infoPageList!.elementAt(0);
+
+    _logPageViewEvent(visiblePage.title);
+  }
+
+  _logPageViewEvent(String pageTitle) async {
+    if (viewedTabs.contains(pageTitle.toLowerCase())) {
+      print(
+          'HeartServiceDetailModel: _logTabViewEvent: already logged event for $pageTitle page');
+    } else {
+      String eventName = '${_heartService.id}_view_${pageTitle.toLowerCase()}';
+
+      await FirebaseAnalytics.instance.logEvent(
+        name: eventName,
+        parameters: {
+          "info_page_name": pageTitle,
+          "service_name": _heartService.title,
+          "phone": _heartService.phone,
+        },
+      );
+      viewedTabs.add(pageTitle.toLowerCase());
+      print(
+          'HeartServiceDetailModel: _logTabViewEvent: successfully logged $eventName event');
+    }
   }
 
   Future handleServiceCall(BuildContext context, HeartService svc) async {
@@ -19,14 +47,16 @@ class HeartServiceDetailModel extends BaseModel {
 
       // log firebase event
       if (success) {
+        String eventName = 'call_${svc.id}_service';
+
         await FirebaseAnalytics.instance.logEvent(
-          name: "call_service",
+          name: eventName,
           parameters: {
             "service_name": svc.title,
             "phone": svc.phone,
           },
         );
-        print('HeartServiceDetailModel: logged call_service firebase event');
+        print('HeartServiceDetailModel: logged $eventName event');
       }
     } else {
       // set up the button
@@ -53,5 +83,11 @@ class HeartServiceDetailModel extends BaseModel {
       );
       //throw 'Could not launch $url';
     }
+  }
+
+  handleTabBarTap(int index) async {
+    HeartServiceInfoPage page = _heartService.infoPageList!.elementAt(index);
+    print('the tab with title = ${page.title} was tapped');
+    _logPageViewEvent(page.title);
   }
 }

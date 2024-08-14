@@ -41,6 +41,7 @@ class HeartServiceDetailView extends StatelessWidget {
                           ),
                         ),
                         TabBar(
+                          onTap: (index) => model.handleTabBarTap(index),
                           tabs: <Widget>[
                             ...heartService.infoPageList!
                                 .map((page) => Tab(text: page.title)),

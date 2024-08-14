@@ -3,6 +3,8 @@
 enum Flavor { dev, staging, prod }
 
 class Config {
+  static const String appStoreAppId = '1451245966';
+
   static const String appGroupId = 'group.edu.harvard.mgh.heart';
 
   static Flavor? appFlavor;

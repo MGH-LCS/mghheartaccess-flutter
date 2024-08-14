@@ -148,6 +148,12 @@ class HomeDrawer extends StatelessWidget {
               ),
             ),
           ),
+
+          const Padding(
+            padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
+            child: Text(
+                'Created in partnership with MGH Healthcare Transformation Lab and MGH Lab of Computer Science'),
+          )
         ],
       ),
     );
