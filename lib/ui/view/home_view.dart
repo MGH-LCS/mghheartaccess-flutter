@@ -188,73 +188,91 @@ class ServiceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(8.0, 0, 8, 8),
-      child: Card(
-        elevation: 1,
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          svc.title.toUpperCase(),
-                          style: const TextStyle(
-                              fontWeight: FontWeight.w600, fontSize: 20),
-                        ),
-                        Text(svc.description),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: SizedBox(
-                      width: 80,
-                      height: 80,
-                      child: Image.asset(svc.imageAssetPath),
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(8, 16, 0, 0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    TextButton(
-                      onPressed: () {
-                        model.showServiceDetail(svc);
-                      },
-                      child: const Text(' Guidelines'),
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    FilledButton.icon(
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll<Color>(mgbRed),
+      child: GestureDetector(
+        onTap: () => model.showServiceDetail(svc),
+        child: Card(
+          elevation: 1,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            svc.title.toUpperCase(),
+                            style: const TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 20),
+                          ),
+                          Text(svc.description),
+                        ],
                       ),
-                      onPressed: () => model.handleServiceCall(context, svc),
-                      label: const Text(
-                        'Hotline',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      icon: Icon(
-                        Icons.phone,
-                        color: Colors.white,
-                        size: 24.0,
-                        semanticLabel: 'Call the ${svc.title} hotline',
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: SizedBox(
+                        width: 80,
+                        height: 80,
+                        child: Image.asset(svc.imageAssetPath),
                       ),
                     ),
                   ],
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 16, 0, 0),
+                  child: Row(
+                    //mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Expanded(
+                        child: TextButton(
+                          onPressed: () {
+                            model.showServiceDetail(svc);
+                          },
+                          child: const Text(' Tap for details'),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      FilledButton.icon(
+                        style: ButtonStyle(
+                            backgroundColor:
+                                WidgetStatePropertyAll<Color>(mgbRed),
+                            shape: WidgetStateProperty.all(
+                              const RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                              ),
+                            )),
+
+                        /*
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll<Color>(mgbRed),
+                        ),
+                        */
+
+                        onPressed: () => model.handleServiceCall(context, svc),
+                        label: const Text(
+                          'Hotline',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        icon: Icon(
+                          Icons.phone,
+                          color: Colors.white,
+                          size: 24.0,
+                          semanticLabel: 'Call the ${svc.title} hotline',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

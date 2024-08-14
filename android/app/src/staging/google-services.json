@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1092911923541",
+    "project_id": "mgh-heart-access-staging",
+    "storage_bucket": "mgh-heart-access-staging.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092911923541:android:404aa1b5b771326afb6fdc",
+        "android_client_info": {
+          "package_name": "edu.harvard.mgh.heart.staging"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsp31vqxXocOh22oL4a3wDvJsHyDWmJjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -99,7 +99,9 @@ class HomeModel extends BaseModel with WidgetsBindingObserver {
       // set up the button
       Widget okButton = TextButton(
         child: const Text("OK"),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
       );
 
       // set up the AlertDialog

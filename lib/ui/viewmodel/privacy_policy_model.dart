@@ -7,16 +7,12 @@ class PrivacyPolicyModel extends BaseModel {
   Future init() async {
     print('AboutHeartCenterModel: init ...');
 
-    /*
-    not sure if we want an HTML version of this page??
-    for now, lets just use flutter widgets 
-
     webViewController = WebViewController()
       ..enableZoom(false)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..setBackgroundColor(const Color(0x00000000))
-      ..loadHtmlString(heartCenter.aboutPageHTML);
-    */
+      //..setBackgroundColor(const Color(0x00000000))
+      //..loadHtmlString(heartCenter.aboutPageHTML);
+      ..loadFlutterAsset('assets/html/privacy_policy_ios.html');
 
     print('AboutHeartCenterModel: init ... done');
   }

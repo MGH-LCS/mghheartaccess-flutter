@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mghheartaccess/ui/view/base_view.dart';
 import 'package:mghheartaccess/ui/viewmodel/privacy_policy_model.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class PrivacyPolicyView extends StatelessWidget {
   const PrivacyPolicyView({super.key});
@@ -19,27 +20,14 @@ class PrivacyPolicyView extends StatelessWidget {
                   ),
                 ),
               ),
-              body: const SafeArea(
-                  minimum: EdgeInsets.fromLTRB(0, 0, 0, 8),
+              body: SafeArea(
+                  minimum: const EdgeInsets.fromLTRB(0, 0, 0, 8),
                   child: Padding(
-                    padding: EdgeInsets.fromLTRB(16.0, 16, 16, 16),
-                    child: Text('Privacy policy text here'),
-                  )
-                  /*
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(16.0, 16, 16, 100),
-                    child: Column(children: [
-                      WebViewWidget(
-                        controller: model.webViewController,
-                      )
-                      //HtmlWidget(heartCenter.aboutPageHTML),
-                    ]),
-                  ),
-                ),
-                */
-
-                  ),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: WebViewWidget(
+                      controller: model.webViewController,
+                    ),
+                  )),
             ));
   }
 }

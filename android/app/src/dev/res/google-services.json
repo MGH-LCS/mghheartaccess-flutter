@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "595520306323",
+    "project_id": "mgh-heart-access-dev",
+    "storage_bucket": "mgh-heart-access-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595520306323:android:b0a49140bd4f03bdf12166",
+        "android_client_info": {
+          "package_name": "edu.harvard.mgh.heart.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeLaeJApnSZYMePUnF8uCe5JZVv932DSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
