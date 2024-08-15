@@ -90,13 +90,18 @@ class Repository {
     final storageRef = FirebaseStorage.instance.ref();
 
     // Create a reference with an initial file path and name
-    final pathReference = storageRef.child("test.json");
+    final pathReference = storageRef.child("appData.json");
 
-    FullMetadata fullMetadata = await pathReference.getMetadata();
+    DateTime? lastUpdated;
 
-    DateTime? lastUpdated = fullMetadata.updated;
-
-    print('Repository: last updated for data file = $lastUpdated');
+    try {
+      FullMetadata fullMetadata = await pathReference.getMetadata();
+      DateTime? lastUpdated = fullMetadata.updated;
+      print('Repository: last updated for data file = $lastUpdated');
+    } catch (e) {
+      print('Repository: getLastUpdatedFromFirebase: error: $e');
+      lastUpdated = null;
+    }
 
     return lastUpdated;
   }
@@ -105,15 +110,15 @@ class Repository {
     final storageRef = FirebaseStorage.instance.ref();
 
     // Create a reference with an initial file path and name
-    final pathReference = storageRef.child("test.json");
+    final pathReference = storageRef.child("appData.json");
 
     String? jsonString;
 
     try {
       const oneMegabyte = 1024 * 1024;
       final Uint8List? data = await pathReference.getData(oneMegabyte);
-      final tempDir = await getTemporaryDirectory();
-      File file = await File('${tempDir.path}/test.json').create();
+      final docsDir = await getApplicationDocumentsDirectory();
+      File file = await File('${docsDir.path}/appData.json').create();
       file.writeAsBytes(data!);
       jsonString = await file.readAsString();
     } on FirebaseException catch (e) {
@@ -127,6 +132,8 @@ class Repository {
 
   Future<HeartCenter> getHeartCenter() async {
     if (_heartCenter != null) return _heartCenter!;
+
+    // attempt to get local file from docs directory
 
     // for now just load local file
     Map<String, dynamic> jsonData =
