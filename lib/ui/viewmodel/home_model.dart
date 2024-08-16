@@ -117,6 +117,7 @@ class HomeModel extends BaseModel with WidgetsBindingObserver {
 
       // show the dialog
       showDialog(
+        // ignore: use_build_context_synchronously
         context: context,
         builder: (BuildContext context) {
           return alert;
@@ -135,16 +136,16 @@ class HomeModel extends BaseModel with WidgetsBindingObserver {
   }
 
   void navigateToFeedback(BuildContext context) {
-    final Uri _emailLaunchUri = Uri(
+    final Uri emailLaunchUri = Uri(
         scheme: 'mailto',
         path: 'htlappsupport@partners.org',
         queryParameters: {'subject': 'Feedback'});
-    launchUrl(_emailLaunchUri);
+    launchUrl(emailLaunchUri);
   }
 
   void navigateToRateAppPage(BuildContext context) {
-    final InAppReview _inAppReview = InAppReview.instance;
-    _inAppReview.openStoreListing(appStoreId: Config.appStoreAppId);
+    final InAppReview inAppReview = InAppReview.instance;
+    inAppReview.openStoreListing(appStoreId: Config.appStoreAppId);
   }
 }
 
