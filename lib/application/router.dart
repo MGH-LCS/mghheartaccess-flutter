@@ -42,9 +42,10 @@ class MGHHeartRouter {
             builder: (_) => AboutHeartCenterView(center));
 
       case RouteName.termsOfUse:
+        final userHasAcceptedTerms = settings.arguments as bool;
         return MaterialPageRoute(
             settings: RouteSettings(name: routeName),
-            builder: (_) => const TermsOfUseView());
+            builder: (_) => TermsOfUseView(userHasAcceptedTerms));
 
       case RouteName.privacyPolicy:
         return MaterialPageRoute(

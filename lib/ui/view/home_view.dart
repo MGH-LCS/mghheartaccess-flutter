@@ -128,27 +128,32 @@ class HomeBody extends StatelessWidget {
                 },
                 child: SizedBox(
                   width: double.infinity,
-                  height: 175,
+                  //height: 175,
                   //decoration: BoxDecoration(color: mgbBlue),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text(
-                          model.heartCenter.title,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'RobotoSlab',
-                            fontSize: 22,
+                        Center(
+                          child: Text(
+                            model.heartCenter.title,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'LucidaSans',
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         const SizedBox(
                           height: 8,
                         ),
-                        Text(
-                          model.heartCenter.description,
-                          style: const TextStyle(
+                        const Text(
+                          //textAlign: TextAlign.right,
+                          //model.heartCenter.description,
+                          'Learn More > ',
+                          style: TextStyle(
                             color: Colors.white,
                             fontFamily: 'Roboto',
                             fontSize: 14,

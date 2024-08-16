@@ -2,15 +2,11 @@ class HeartCenter {
   HeartCenter(
       {required this.title,
       required this.description,
-      required this.serviceList,
-      required this.aboutPageTitle,
-      required this.aboutPageHTML});
+      required this.serviceList});
 
   String title;
   String description;
   List<HeartService> serviceList;
-  String aboutPageTitle;
-  String aboutPageHTML;
 
   factory HeartCenter.fromJson(Map<String, dynamic> json) {
     var serviceList = <HeartService>[];
@@ -24,8 +20,6 @@ class HeartCenter {
     return HeartCenter(
         title: json['title'] as String,
         description: json['description'] as String,
-        aboutPageTitle: json['aboutPageTitle'] as String,
-        aboutPageHTML: json['aboutPageHTML'] as String,
         serviceList: serviceList);
   }
 }

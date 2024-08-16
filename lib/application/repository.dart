@@ -15,7 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class Repository {
   late MGHHeartDatabase _database;
-  late final SharedPreferences prefs;
+  //late final SharedPreferences prefs;
 
   // this is the data structure that holds dynamic data
   HeartCenter? _heartCenter;
@@ -37,6 +37,7 @@ class Repository {
   Future init() async {
     print('Repository: init ...');
 
+    SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs = await SharedPreferences.getInstance();
 
     DateTime? lastUpdated;

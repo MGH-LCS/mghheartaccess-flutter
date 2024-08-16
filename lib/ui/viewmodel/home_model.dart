@@ -11,6 +11,7 @@ import 'package:mghheartaccess/model/user.dart';
 import 'package:mghheartaccess/service/navigation_service.dart';
 import 'package:mghheartaccess/ui/viewmodel/base_model.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeModel extends BaseModel with WidgetsBindingObserver {
@@ -27,6 +28,18 @@ class HomeModel extends BaseModel with WidgetsBindingObserver {
     print('HomeModel: init ...');
 
     setState(ViewState.busy);
+
+    // has the user accepted the user agreement
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool userHasAcceptedTermsOfUse =
+        prefs.getBool('userHasAcceptedTermsOfUse') ?? false;
+
+    if (!userHasAcceptedTermsOfUse) {
+      print('user has not accepted terms yet');
+      navSvc.navigateTo(RouteName.termsOfUse, arguments: false);
+    } else {
+      print('user has accepted user agreement');
+    }
 
     // get package info for drawer
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
@@ -128,7 +141,7 @@ class HomeModel extends BaseModel with WidgetsBindingObserver {
   }
 
   void navigateToTermsOfUse(BuildContext context) {
-    navSvc.navigateTo(RouteName.termsOfUse);
+    navSvc.navigateTo(RouteName.termsOfUse, arguments: true);
   }
 
   void navigateToPrivacyPolicy(BuildContext context) {
@@ -146,6 +159,16 @@ class HomeModel extends BaseModel with WidgetsBindingObserver {
   void navigateToRateAppPage(BuildContext context) {
     final InAppReview inAppReview = InAppReview.instance;
     inAppReview.openStoreListing(appStoreId: Config.appStoreAppId);
+  }
+
+  handleLCSTap(BuildContext context) {
+    Navigator.pop(context);
+    launchUrl(Uri.parse('http://www.mghlcs.org/'));
+  }
+
+  handleHTLTap(BuildContext context) {
+    Navigator.pop(context);
+    launchUrl(Uri.parse('https://healthcaretransformation.org'));
   }
 }
 

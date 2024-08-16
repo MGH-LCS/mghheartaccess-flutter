@@ -38,9 +38,9 @@ class HomeDrawer extends StatelessWidget {
                   'MGH Heart Center',
                   style: TextStyle(
                       color: Colors.white,
-                      fontFamily: 'RobotoSlab',
+                      fontFamily: 'LucidaSans',
                       fontSize: 20,
-                      fontWeight: FontWeight.w500),
+                      fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -130,6 +130,7 @@ class HomeDrawer extends StatelessWidget {
           ),
 
           // MGHLCS logo
+          /*
           ListTile(
             title: Transform.translate(
                 offset: const Offset(5, 0),
@@ -148,12 +149,45 @@ class HomeDrawer extends StatelessWidget {
               ),
             ),
           ),
-
+          */
+          const Divider(),
           const Padding(
-            padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
-            child: Text(
-                'Created in partnership with MGH Healthcare Transformation Lab and MGH Lab of Computer Science'),
-          )
+            padding: EdgeInsets.fromLTRB(16, 16, 16, 16),
+            child: Center(
+              child: Text(
+                  'Created in partnership with MGH Healthcare Transformation Lab and MGH Lab of Computer Science'),
+            ),
+          ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              InkWell(
+                onTap: () => model.handleLCSTap(context),
+                child: Transform.translate(
+                    offset: const Offset(5, 0),
+                    child: SvgPicture.asset(
+                      "assets/images/mgh-lcs.svg",
+                      height: 24,
+                      alignment: Alignment.topLeft,
+                      colorFilter: ColorFilter.mode(mgbGray, BlendMode.srcIn),
+                    )),
+              ),
+              InkWell(
+                onTap: () => model.handleHTLTap(context),
+                child: Text('HTL',
+                    style: TextStyle(
+                        color: Colors.grey[500],
+                        //fontFamily: 'MargriteSlimSerif',
+                        fontFamily: 'arial',
+                        fontSize: 25,
+                        fontWeight: FontWeight.w400)),
+              ),
+              Container(
+                width: 10,
+              )
+            ],
+          ),
         ],
       ),
     );
