@@ -15,11 +15,6 @@ void main() async {
   // see this: https://stackoverflow.com/questions/57689492/flutter-unhandled-exception-servicesbinding-defaultbinarymessenger-was-accesse
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Firebase stuff
-  await Firebase.initializeApp();
-  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-  analytics.logAppOpen;
-
   // configuring GetIt
   setupLocator();
 

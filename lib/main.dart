@@ -15,20 +15,6 @@ void main() async {
   // see this: https://stackoverflow.com/questions/57689492/flutter-unhandled-exception-servicesbinding-defaultbinarymessenger-was-accesse
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: const FirebaseOptions(
-      storageBucket: 'mgh-heart-access-dev.appspot.com',
-      apiKey:
-          'AIzaSyBeLaeJApnSZYMePUnF8uCe5JZVv932DSo', // paste your api key here
-      appId:
-          '1:595520306323:android:b0a49140bd4f03bdf12166', //paste your app id here
-      messagingSenderId: '595520306323', //paste your messagingSenderId here
-      projectId: 'mgh-heart-access-dev', //paste your project id here
-    ),
-  );
-  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-  analytics.logAppOpen;
-
   // configuring GetIt
   setupLocator();
 
