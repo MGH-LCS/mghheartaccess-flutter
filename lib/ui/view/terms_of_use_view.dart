@@ -48,7 +48,7 @@ class TermsOfUseView extends StatelessWidget {
                       color: Colors.white,
                     ),
                     */
-                    backgroundColor: mgbRed,
+                    backgroundColor: mgbBlue,
                   )
                 : Container(),
             body: model.state == ViewState.busy

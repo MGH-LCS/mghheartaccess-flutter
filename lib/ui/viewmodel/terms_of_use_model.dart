@@ -16,6 +16,7 @@ class TermsOfUseModel extends BaseModel {
     //userHasAccepted = prefs.getBool('userHasAcceptedTermsOfUse') ?? false;
 
     webViewController = WebViewController()
+      ..setBackgroundColor(const Color(0x00000000))
       ..enableZoom(false)
       ..addJavaScriptChannel('FLUTTER_CHANNEL', onMessageReceived: (message) {
         if (message.message.toString() == "end of scroll") {
