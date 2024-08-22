@@ -3,8 +3,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mghheartaccess/model/heart_center.dart';
 import 'package:mghheartaccess/ui/shared/colors.dart';
+import 'package:mghheartaccess/ui/utils/recognizable_text.dart';
 import 'package:mghheartaccess/ui/view/base_view.dart';
 import 'package:mghheartaccess/ui/viewmodel/heart_service_detail_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class HeartServiceDetailView extends StatelessWidget {
@@ -32,9 +34,8 @@ class HeartServiceDetailView extends StatelessWidget {
                             padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                             child: Column(
                               children: [
-                                Text(
-                                  heartService.headerText,
-                                  style: const TextStyle(color: Colors.white),
+                                RecognizableTextWidget(
+                                  text: heartService.headerText,
                                 )
                               ],
                             ),
@@ -43,8 +44,7 @@ class HeartServiceDetailView extends StatelessWidget {
                         TabBar(
                           onTap: (index) => model.handleTabBarTap(index),
                           tabs: <Widget>[
-                            ...heartService.infoPageList!
-                                .map((page) => Tab(text: page.title)),
+                            ...heartService.infoPageList!.map((page) => Tab(text: page.title)),
                           ],
                         ),
                       ],
@@ -52,8 +52,7 @@ class HeartServiceDetailView extends StatelessWidget {
                   ),
                 ),
                 floatingActionButton: FloatingActionButton.extended(
-                  onPressed: () =>
-                      model.handleServiceCall(context, heartService),
+                  onPressed: () => model.handleServiceCall(context, heartService),
                   label: Text(
                     "${heartService.title} Hotline",
                     style: const TextStyle(color: Colors.white),
@@ -105,14 +104,21 @@ class HeartServiceInfoPageView extends StatelessWidget {
         // ),
         Expanded(
           child: WebViewWidget(
-            gestureRecognizers: {
-              Factory<VerticalDragGestureRecognizer>(
-                  () => VerticalDragGestureRecognizer())
-            },
+            gestureRecognizers: {Factory<VerticalDragGestureRecognizer>(() => VerticalDragGestureRecognizer())},
             controller: WebViewController()
               ..setBackgroundColor(const Color(0x00000000))
               ..enableZoom(false)
-              ..loadHtmlString(page.html),
+              ..setNavigationDelegate(
+                NavigationDelegate(
+                  onUrlChange: (UrlChange change) async {
+                    if ((change.url!).contains('tel:')) {
+                      await launchUrl(Uri.parse(change.url!));
+                    }
+                    debugPrint('url change to ${change.url}');
+                  },
+                ),
+              )
+              ..loadHtmlString(textParser(page.html)),
           ),
         )
       ],
