@@ -106,6 +106,20 @@ class HeartServiceInfoPageView extends StatelessWidget {
           child: WebViewWidget(
             gestureRecognizers: {Factory<VerticalDragGestureRecognizer>(() => VerticalDragGestureRecognizer())},
             controller: WebViewController()
+              ..setNavigationDelegate(
+                NavigationDelegate(
+                  onNavigationRequest: (NavigationRequest request) {
+                    if (request.url.startsWith('https://www.youtube.com/')) {
+                      debugPrint('blocking navigation to ${request.url}');
+                      return NavigationDecision.prevent;
+                    } else if (request.url.contains("tel:")) {
+                      launchUrl(Uri.parse(request.url));
+                    }
+                    debugPrint('allowing navigation to ${request.url}');
+                    return NavigationDecision.navigate;
+                  },
+                ),
+              )
               ..setBackgroundColor(const Color(0x00000000))
               ..enableZoom(false)
               ..setNavigationDelegate(

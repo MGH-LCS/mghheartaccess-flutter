@@ -141,7 +141,7 @@ class HomeBody extends StatelessWidget {
                             style: const TextStyle(
                               color: Colors.white,
                               fontFamily: 'LucidaSans',
-                              fontSize: 22,
+                              fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
