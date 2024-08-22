@@ -1,4 +1,4 @@
-package edu.harvard.mgh.heart
+package com.mghheart.android
 
 import io.flutter.embedding.android.FlutterActivity
 

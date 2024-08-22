@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:312142562089:android:e45c7ff4a3cc7575e3ed38",
+        "mobilesdk_app_id": "1:312142562089:android:3a7b47f604d28869e3ed38",
         "android_client_info": {
-          "package_name": "edu.harvard.mgh.heart"
+          "package_name": "com.mghheart.android"
         }
       },
       "oauth_client": [],
