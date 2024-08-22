@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:mghheartaccess/enums/viewstate.dart';
 import 'package:mghheartaccess/ui/viewmodel/base_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class TermsOfUseModel extends BaseModel {
@@ -16,6 +17,20 @@ class TermsOfUseModel extends BaseModel {
     //userHasAccepted = prefs.getBool('userHasAcceptedTermsOfUse') ?? false;
 
     webViewController = WebViewController()
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onNavigationRequest: (NavigationRequest request) {
+            if (request.url.startsWith('https://www.youtube.com/')) {
+              debugPrint('blocking navigation to ${request.url}');
+              return NavigationDecision.prevent;
+            } else if (request.url.contains("tel:")) {
+              launchUrl(Uri.parse(request.url));
+            }
+            debugPrint('allowing navigation to ${request.url}');
+            return NavigationDecision.navigate;
+          },
+        ),
+      )
       ..setBackgroundColor(const Color(0x00000000))
       ..enableZoom(false)
       ..addJavaScriptChannel('FLUTTER_CHANNEL', onMessageReceived: (message) {

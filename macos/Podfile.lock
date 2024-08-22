@@ -80,6 +80,9 @@ PODS:
     - FirebaseCoreExtension (~> 10.0)
     - GoogleUtilities/Environment (~> 7.12)
     - GTMSessionFetcher/Core (< 4.0, >= 2.1)
+  - flutter_inappwebview_macos (0.0.1):
+    - FlutterMacOS
+    - OrderedSet (~> 5.0)
   - FlutterMacOS (1.0.0)
   - GoogleAppMeasurement (10.25.0):
     - GoogleAppMeasurement/AdIdSupport (= 10.25.0)
@@ -134,6 +137,8 @@ PODS:
     - GoogleUtilities/Logger
     - GoogleUtilities/Privacy
   - GTMSessionFetcher/Core (3.5.0)
+  - in_app_review (0.2.0):
+    - FlutterMacOS
   - just_audio (0.0.1):
     - FlutterMacOS
   - nanopb (2.30910.0):
@@ -141,14 +146,18 @@ PODS:
     - nanopb/encode (= 2.30910.0)
   - nanopb/decode (2.30910.0)
   - nanopb/encode (2.30910.0)
-  - package_info (0.0.1):
-    - FlutterMacOS
+  - OrderedSet (5.0.0)
   - package_info_plus (0.0.1):
     - FlutterMacOS
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - pdf_render (0.0.1):
+    - FlutterMacOS
   - PromisesObjC (2.4.0)
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
   - sqflite (0.0.3):
     - Flutter
     - FlutterMacOS
@@ -166,11 +175,14 @@ DEPENDENCIES:
   - firebase_core (from `Flutter/ephemeral/.symlinks/plugins/firebase_core/macos`)
   - firebase_messaging (from `Flutter/ephemeral/.symlinks/plugins/firebase_messaging/macos`)
   - firebase_storage (from `Flutter/ephemeral/.symlinks/plugins/firebase_storage/macos`)
+  - flutter_inappwebview_macos (from `Flutter/ephemeral/.symlinks/plugins/flutter_inappwebview_macos/macos`)
   - FlutterMacOS (from `Flutter/ephemeral`)
+  - in_app_review (from `Flutter/ephemeral/.symlinks/plugins/in_app_review/macos`)
   - just_audio (from `Flutter/ephemeral/.symlinks/plugins/just_audio/macos`)
-  - package_info (from `Flutter/ephemeral/.symlinks/plugins/package_info/macos`)
   - package_info_plus (from `Flutter/ephemeral/.symlinks/plugins/package_info_plus/macos`)
   - path_provider_foundation (from `Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin`)
+  - pdf_render (from `Flutter/ephemeral/.symlinks/plugins/pdf_render/macos`)
+  - shared_preferences_foundation (from `Flutter/ephemeral/.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sqflite (from `Flutter/ephemeral/.symlinks/plugins/sqflite/darwin`)
   - url_launcher_macos (from `Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/macos`)
   - video_player_avfoundation (from `Flutter/ephemeral/.symlinks/plugins/video_player_avfoundation/darwin`)
@@ -193,6 +205,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMSessionFetcher
     - nanopb
+    - OrderedSet
     - PromisesObjC
 
 EXTERNAL SOURCES:
@@ -206,16 +219,22 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/firebase_messaging/macos
   firebase_storage:
     :path: Flutter/ephemeral/.symlinks/plugins/firebase_storage/macos
+  flutter_inappwebview_macos:
+    :path: Flutter/ephemeral/.symlinks/plugins/flutter_inappwebview_macos/macos
   FlutterMacOS:
     :path: Flutter/ephemeral
+  in_app_review:
+    :path: Flutter/ephemeral/.symlinks/plugins/in_app_review/macos
   just_audio:
     :path: Flutter/ephemeral/.symlinks/plugins/just_audio/macos
-  package_info:
-    :path: Flutter/ephemeral/.symlinks/plugins/package_info/macos
   package_info_plus:
     :path: Flutter/ephemeral/.symlinks/plugins/package_info_plus/macos
   path_provider_foundation:
     :path: Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin
+  pdf_render:
+    :path: Flutter/ephemeral/.symlinks/plugins/pdf_render/macos
+  shared_preferences_foundation:
+    :path: Flutter/ephemeral/.symlinks/plugins/shared_preferences_foundation/darwin
   sqflite:
     :path: Flutter/ephemeral/.symlinks/plugins/sqflite/darwin
   url_launcher_macos:
@@ -241,17 +260,21 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 91950fe859846fff0fbd296180909dd273103b09
   FirebaseMessaging: 88950ba9485052891ebe26f6c43a52bb62248952
   FirebaseStorage: 44f4e25073f6fa0d4d8c09f5bec299ee9e4eb985
+  flutter_inappwebview_macos: 9600c9df9fdb346aaa8933812009f8d94304203d
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   GoogleAppMeasurement: 9abf64b682732fed36da827aa2a68f0221fd2356
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
   GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
+  in_app_review: a850789fad746e89bce03d4aeee8078b45a53fd0
   just_audio: 9b67ca7b97c61cfc9784ea23cd8cc55eb226d489
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
-  package_info: 6eba2fd8d3371dda2d85c8db6fe97488f24b74b2
+  OrderedSet: aaeb196f7fef5a9edf55d89760da9176ad40b93c
   package_info_plus: fa739dd842b393193c5ca93c26798dff6e3d0e0c
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
+  pdf_render: c2c4dfbd5cdb621c4f734018e52ab4546f08f3a1
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
+  shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   sqflite: 673a0e54cc04b7d6dba8d24fb8095b31c3a99eec
   url_launcher_macos: 5f437abeda8c85500ceb03f5c1938a8c5a705399
   video_player_avfoundation: 7c6c11d8470e1675df7397027218274b6d2360b3
