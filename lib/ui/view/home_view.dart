@@ -131,7 +131,7 @@ class HomeBody extends StatelessWidget {
                   //height: 175,
                   //decoration: BoxDecoration(color: mgbBlue),
                   child: Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(18.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
@@ -141,13 +141,10 @@ class HomeBody extends StatelessWidget {
                             style: const TextStyle(
                               color: Colors.white,
                               fontFamily: 'LucidaSans',
-                              fontSize: 20,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 8,
                         ),
                         const Text(
                           //textAlign: TextAlign.right,
