@@ -1,3 +1,4 @@
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:mghheartaccess/ui/viewmodel/base_model.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -8,6 +9,15 @@ class PrivacyPolicyModel extends BaseModel {
 
   Future init() async {
     print('AboutHeartCenterModel: init ...');
+
+    String asseetPath;
+    if (Platform.isIOS) {
+      asseetPath = 'assets/html/privacy_policy_ios.html';
+    } else if (Platform.isAndroid) {
+      asseetPath = 'assets/html/privacy_policy_android.html';
+    } else {
+      asseetPath = 'assets/html/privacy_policy_ios.html';
+    }
 
     webViewController = WebViewController()
       ..setNavigationDelegate(
@@ -29,7 +39,7 @@ class PrivacyPolicyModel extends BaseModel {
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       //..setBackgroundColor(const Color(0x00000000))
       //..loadHtmlString(heartCenter.aboutPageHTML);
-      ..loadFlutterAsset('assets/html/privacy_policy_ios.html');
+      ..loadFlutterAsset(asseetPath);
 
     print('AboutHeartCenterModel: init ... done');
   }

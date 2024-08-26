@@ -1,3 +1,4 @@
+import 'dart:io' show Platform;
 import 'package:flutter/widgets.dart';
 import 'package:mghheartaccess/enums/viewstate.dart';
 import 'package:mghheartaccess/ui/viewmodel/base_model.dart';
@@ -15,6 +16,15 @@ class TermsOfUseModel extends BaseModel {
 
     //SharedPreferences prefs = await SharedPreferences.getInstance();
     //userHasAccepted = prefs.getBool('userHasAcceptedTermsOfUse') ?? false;
+
+    String asseetPath;
+    if (Platform.isIOS) {
+      asseetPath = 'assets/html/terms_of_use_ios.html';
+    } else if (Platform.isAndroid) {
+      asseetPath = 'assets/html/terms_of_use_android.html';
+    } else {
+      asseetPath = 'assets/html/terms_of_use_ios.html';
+    }
 
     webViewController = WebViewController()
       ..setNavigationDelegate(
@@ -44,7 +54,7 @@ class TermsOfUseModel extends BaseModel {
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       //..setBackgroundColor(const Color(0x00000000))
       //..loadHtmlString(heartCenter.aboutPageHTML);
-      ..loadFlutterAsset('assets/html/terms_of_use_ios.html');
+      ..loadFlutterAsset(asseetPath);
 
     print('AboutHeartCenterModel: init ... done');
     setState(ViewState.idle);
